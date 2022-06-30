@@ -41,5 +41,9 @@ def predict():
     except Exception as e:
         return {'error': str(e)}
 
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({'message': 'Endpoint not found', 'status_code': 404})
+
 if __name__ == '__main__':
     app.run()
